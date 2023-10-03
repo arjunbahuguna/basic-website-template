@@ -4,8 +4,12 @@
     box-sizing: border-box;
 }
 
-header {
+/* to add scrollbar 
+html {
+    overflow: -moz-scrollbars-vertical; 
+    overflow-y: scroll;
 }
+*/
 
 .person {
     position: absolute; 
@@ -15,7 +19,7 @@ header {
     justify-content: center;
     align-items: center;
     padding-top: 35px;
-    padding-left: 50px;
+    padding-left: 40px;
     padding-right: 50px;
 }
 
@@ -26,7 +30,7 @@ font-size: 34px;
 font-family: 'Chivo';
 color: #222222;
 font-weight: 400;
-
+letter-spacing: 0.003em;
 }
 
 .person p.occupation{
@@ -42,7 +46,7 @@ font-weight: 400;
     height: 60px;
     right:20px;
     top: 0;
-    padding-top: 40px;
+    padding-top: 45px;
     padding-left: 50px;
     padding-right: 50px;
 }
@@ -58,10 +62,23 @@ li {
 
 ul li a{
     text-decoration: none;
-    color:black;
     padding: 30px 0px 5px 20px;
     font-size: 14px;
-    color: #bababa;}
+    color: #bababa;
+    letter-spacing: 0.02em;
+}
+
+ul li a:hover {
+    text-decoration: none;
+    padding: 30px 0px 5px 20px;
+    font-size: 14px;
+    color: black;
+
+}
+
+.stories {
+    color: black;
+}
 
 body {
     font-family: 'Chivo';
@@ -69,10 +86,23 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
-    overflow: hidden;
     margin: 0;
-    padding-top: 250px;
+    padding-top: 400px;
+
+    /* zoomies */
+    zoom: 0.8;
+    -ms-zoom: 0.8;
+    -webkit-zoom: 0.8;
+
+    /* scrollies */
+    /* removed to make page scrollable overflow: hidden; */
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
 }
+
+body::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+  }
 
 .container {
     display: flex;
@@ -102,7 +132,8 @@ body {
 
 .panel.active {
     background-image: url('https://images.unsplash.com/photo-1574009000204-8d793e519de8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1528&q=80') !important;
-    transition: background-image 2s ease-in-out 4s !important
+    /*for firefox transition: background-image 2s ease-in-out 0.5s !important*/
+    transition: background-image 2s fadeIn !important
 }
 
 .panel.active h3 {
@@ -116,8 +147,10 @@ body {
     opacity: 0;
  }
 
- .panel > div{
-
+ @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
 
  @keyframes fadeOut{
     0% { opacity: 1; }

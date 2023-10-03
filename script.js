@@ -1,6 +1,8 @@
 const panels = document.querySelectorAll('.panel')
 const active = document.querySelectorAll('.active')
 
+document.body.style.zoom="80%"
+
 panels.forEach(panel => {
     panel.addEventListener('mouseover', () =>{
         removeActiveClass()
@@ -9,8 +11,8 @@ panels.forEach(panel => {
     })
 })
 
-panels.forEach(panel => {
-    panel.addEventListener('onmouseoleave', () =>{
+panels.forEach(i => {
+    i.addEventListener('mouseout', () =>{
         removeActiveClass()
         console.log('you left the click zone')
     })
